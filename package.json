@@ -1,0 +1,26 @@
+{
+  "name": "tsc-difference-between-modules",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start": "tsc src/index.ts",
+    "build": "run-s commonjs amd system umd es2015 esnext clean",
+    "commonjs": "tsc src/index.ts --module commonjs && cat src/index.js > build/output_common.js",
+    "amd": "tsc src/index.ts --module amd && cat src/index.js > build/output_amd.js",
+    "system": "tsc src/index.ts --module system && cat src/index.js > build/output_system.js",
+    "umd": "tsc src/index.ts --module umd && cat src/index.js > build/output_umd.js",
+    "es2015": "tsc src/index.ts --module es2015 && cat src/index.js > build/output_es2015.js",
+    "esnext": "tsc src/index.ts --module esnext && cat src/index.js > build/output_esnext.js",
+    "clean": "rm src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yarn-run-all": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "typescript": "^3.9.7"
+  }
+}
